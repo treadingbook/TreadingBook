@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ট্রেডিং স্কুল - হোম</title>
+    <style>
+        :root {
+            --primary: #0f2027;
+            --secondary: #203a43;
+            --accent: #37b39a;
+            --light: #f0f4f8;
+            --dark: #1a1a2e;
+            --white: #ffffff;
+            --glow: 0 0 20px rgba(55,179,154,0.5);
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(to bottom, #0f2027, #203a43);
+            color: var(--white);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            text-align: center;
+            padding: clamp(5rem, 15vw, 9rem) 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(55,179,154,0.12) 10%, transparent 60%);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0,0) rotate(0deg); }
+            100% { transform: translate(100%,100%) rotate(360deg); }
+        }
+
+        header h1 {
+            font-size: clamp(3.2rem, 12vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        header p {
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0.92;
+        }
+
+        nav {
+            background: rgba(15,32,39,0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.4rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0.8rem 1.5rem;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+        }
+
+        nav a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: var(--glow);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .welcome {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: clamp(3rem, 7vw, 5rem);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid rgba(55,179,154,0.2);
+        }
+
+        .welcome h2 {
+            color: var(--accent);
+            font-size: clamp(2.4rem, 8vw, 4rem);
+            margin-bottom: 1.8rem;
+            text-shadow: 0 2px 10px rgba(55,179,154,0.4);
+        }
+
+        .tip {
+            background: rgba(55,179,154,0.1);
+            border-left: 6px solid var(--accent);
+            padding: 1.8rem;
+            margin: 2.5rem 0;
+            border-radius: 14px;
+            font-size: 1.2rem;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .level-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(55,179,154,0.15);
+        }
+
+        .level-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: var(--glow);
+            border-color: var(--accent);
+        }
+
+        .level-card h3 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3.5rem 1rem;
+            margin-top: 6rem;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(55,179,154,0.2);
+        }
+
+        /* রেসপনসিভ */
+        @media (min-width: 640px) { .levels-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 992px) { .levels-grid { grid-template-columns: repeat(3, 1fr); } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ট্রেডিং স্কুল</h1>
+        <p>বাংলায় ট্রেডিং শেখার সবচেয়ে আধুনিক, সম্পূর্ণ ও বাস্তবসম্মত পথ</p>
+    </header>
+
+    <nav>
+        <a href="basic.html">বেসিক লেভেল</a>
+        <a href="intermediate.html">ইন্টারমিডিয়েট</a>
+        <a href="advanced.html">অ্যাডভান্স লেভেল</a>
+        <a href="candlestick-patterns.html">ক্যান্ডেলস্টিক প্যাটার্ন</a>
+    </nav>
+
+    <div class="container">
+        <section class="welcome">
+            <h2>স্বাগতম ট্রেডিং স্কুলে!</h2>
+            <p>আপনার ট্রেডিং যাত্রা শুরু হোক এখান থেকে — শূন্য থেকে প্রফেশনাল, ধাপে ধাপে, বাংলায়।</p>
+
+            <div class="tip">
+                <strong>প্রথম ও সবচেয়ে বড় নিয়ম:</strong> ট্রেডিং শেখা মানে দ্রুত ধনী হওয়া নয়। এটা একটা দীর্ঘমেয়াদী স্কিল। প্রথম ৬-১২ মাস লাভের আশা কম করুন, লস কমানো + ধৈর্য শেখার দিকে ফোকাস করুন।
+            </div>
+
+            <div class="tip">
+                <strong>শুরুর টিপ:</strong> শুধুমাত্র সেই টাকা দিয়ে রিয়েল ট্রেড করুন যা হারালে আপনার জীবনে কোনো বড় সমস্যা হবে না। প্রথমে অন্তত ৩-৬ মাস ডেমোতে প্র্যাকটিস করুন!
+            </div>
+        </section>
+
+        <div class="levels-grid">
+            <div class="level-card">
+                <h3>বেসিক লেভেল</h3>
+                <p>ট্রেডিং কী, মার্কেটের ধরন, ক্যান্ডেলস্টিক, সাপোর্ট-রেজিস্ট্যান্স, অর্ডার টাইপ, রিস্ক ম্যানেজমেন্টের মূল ভিত্তি।</p>
+            </div>
+
+            <div class="level-card">
+                <h3>ইন্টারমিডিয়েট লেভেল</h3>
+                <p>অ্যাডভান্স ক্যান্ডেল প্যাটার্ন, ইন্ডিকেটর (RSI, MACD), ট্রেন্ডলাইন, ফিবোনাচি, মাল্টি-টাইমফ্রেম, কার্যকর স্ট্র্যাটেজি।</p>
+            </div>
+
+            <div class="level-card">
+                <h3>অ্যাডভান্স লেভেল</h3>
+                <p>প্রো রিস্ক ম্যানেজমেন্ট, সাইকোলজি, অপশন/ফিউচার্স, ব্যাকটেস্টিং, অ্যালগো ট্রেডিং, পোর্টফোলিও ও হেজিং।</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © ২০২৫ ট্রেডিং স্কুল | শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে | রিয়েল ট্রেডিং নিজের দায়িত্বে করবেন
+    </footer>
+
+</body>
+</html>

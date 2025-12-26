@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ট্রেডিং স্কুল - ইন্টারমিডিয়েট লেভেল</title>
+    <style>
+        :root {
+            --primary: #0f2027;
+            --secondary: #203a43;
+            --accent: #37b39a;
+            --light: #f0f4f8;
+            --dark: #1a1a2e;
+            --white: #ffffff;
+            --glow: 0 0 20px rgba(55,179,154,0.5);
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(to bottom, var(--light), #e0e8f0);
+            color: var(--dark);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+            padding: clamp(4rem, 12vw, 7rem) 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(55,179,154,0.12) 10%, transparent 60%);
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translate(0,0) rotate(0deg); }
+            100% { transform: translate(100%,100%) rotate(360deg); }
+        }
+        header h1 {
+            font-size: clamp(2.8rem, 10vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        header p {
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0.92;
+        }
+        nav {
+            background: rgba(15,32,39,0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.4rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0.8rem 1.5rem;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+        }
+        nav a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: var(--glow);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        section {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(55,179,154,0.2);
+        }
+        h2 {
+            color: var(--accent);
+            font-size: clamp(2.2rem, 7vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(55,179,154,0.4);
+        }
+        h3 {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+        ul, ol { padding-left: 2rem; margin: 1.2rem 0; font-size: 1.1rem; }
+        table { width:100%; border-collapse:collapse; margin:2rem 0; font-size:1rem; }
+        th, td { border:1px solid rgba(55,179,154,0.2); padding:1rem; text-align:left; }
+        th { background:rgba(55,179,154,0.1); color:var(--accent); }
+        .tip {
+            background: rgba(55,179,154,0.1);
+            border-left: 6px solid var(--accent);
+            padding: 1.6rem;
+            margin: 2rem 0;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .img-example { max-width:100%; height:auto; border-radius:12px; box-shadow:var(--shadow); margin:1.5rem auto; display:block; }
+        .chart-gallery { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin:2rem 0; }
+        .chart-gallery img { max-width:48%; flex:1 1 320px; border-radius:12px; box-shadow:var(--shadow); transition:transform 0.3s; }
+        .chart-gallery img:hover { transform:scale(1.05); }
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3.5rem 1rem;
+            margin-top: 6rem;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(55,179,154,0.2);
+        }
+        @media (min-width: 640px) { .chart-gallery img { max-width:32%; } }
+        @media (min-width: 992px) { .chart-gallery img { max-width:24%; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ইন্টারমিডিয়েট লেভেল</h1>
+        <p>টেকনিক্যাল অ্যানালিসিস + স্ট্র্যাটেজি — এখান থেকে আসল ট্রেডিং শুরু হয়</p>
+    </header>
+
+    <nav>
+        <a href="index.html">হোম</a>
+        <a href="basic.html">বেসিক লেভেল</a>
+        <a href="advanced.html">অ্যাডভান্স লেভেল</a>
+        <a href="candlestick-patterns.html">ক্যান্ডেলস্টিক প্যাটার্ন</a>
+    </nav>
+
+    <div class="container">
+
+        <section>
+            <h2>১. অ্যাডভান্স ক্যান্ডেল প্যাটার্ন</h2>
+            <p>একক ক্যান্ডেলের পর মাল্টি-ক্যান্ডেল প্যাটার্ন — রিভার্সাল ও কন্টিনিউয়েশন সিগন্যাল।</p>
+
+            <h3>Bullish Engulfing (রিভিউ)</h3>
+            <div class="chart-gallery">
+                <img src="https://cdn-amiji.nitrocdn.com/IEZIUgrNRbYQggDlmHBLkLYuABZyJyOL/assets/images/optimized/rev-10997ce/commodity.com/wp-content/uploads/technical-analysis/BullishEngulfChartSPY.gif" alt="Bullish Engulfing উদাহরণ ১" class="img-example">
+                <img src="https://eu-images.contentstack.com/v3/assets/blt73dfd92ee49f59a6/blt34fe88616c41c820/685bd3169eedb7610ddf7e49/MDP-3296_1200x675_2.png" alt="Bullish Engulfing উদাহরণ ২" class="img-example">
+            </div>
+
+            <h3>Piercing Line — বুলিশ রিভার্সাল</h3>
+            <p>বড় লালের পর লম্বা সবুজ ক্যান্ডেল যা আগের ক্যান্ডেলের মাঝখান পর্যন্ত উঠে।</p>
+            <div class="chart-gallery">
+                <img src="https://www.investopedia.com/thmb/3Z0A6gftZ3qR2s5X8zLx7z3m3oA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PiercingLine.asp_Final-7a0d1b7b0b864a5a918e9b0a3b0b0b0b.png" alt="Piercing Line উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">ডাউনট্রেন্ড শেষে + সাপোর্টে দেখলে শক্তিশালী বুলিশ সিগন্যাল।</div>
+
+            <h3>Dark Cloud Cover — বিয়ারিশ রিভার্সাল</h3>
+            <p>বড় সবুজের পর লম্বা লাল ক্যান্ডেল যা আগের মাঝখান পর্যন্ত নামে।</p>
+            <div class="chart-gallery">
+                <img src="https://www.investopedia.com/thmb/3Z0A6gftZ3qR2s5X8zLx7z3m3oA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DarkCloudCover.asp_Final-7a0d1b7b0b864a5a918e9b0a3b0b0b0b.png" alt="Dark Cloud Cover উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">আপট্রেন্ড শেষে + রেজিস্ট্যান্সে দেখলে শক্তিশালী বিয়ারিশ সিগন্যাল।</div>
+        </section>
+
+        <section>
+            <h2>২. ট্রেন্ডলাইন, চ্যানেল ও ব্রেকআউট</h2>
+            <p>ট্রেন্ডলাইন দিয়ে ট্রেন্ড চিহ্নিত করা, চ্যানেলে রেঞ্জ ট্রেডিং, ব্রেকআউটে এন্ট্রি।</p>
+            <div class="chart-gallery">
+                <img src="https://www.tradingsetupsreview.com/trading-pullbacks-using-trend-lines-price-channels/img/TrendLinePullbackChannelExamples.jpg" alt="ট্রেন্ডলাইন + পুলব্যাক উদাহরণ" class="img-example">
+                <img src="https://www.investopedia.com/thmb/3Z0A6gftZ3qR2s5X8zLx7z3m3oA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Channel.asp_Final-7a0d1b7b0b864a5a918e9b0a3b0b0b0b.png" alt="প্রাইস চ্যানেল উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">ব্রেকআউটের পর পুলব্যাক অপেক্ষা করলে ফেক ব্রেকআউট এড়ানো যায়।</div>
+        </section>
+
+        <section>
+            <h2>৩. প্রধান ইন্ডিকেটরস</h2>
+            <table>
+                <tr>
+                    <th>ইন্ডিকেটর</th>
+                    <th>ব্যবহার</th>
+                    <th>ওভারবট/ওভারসোল্ড</th>
+                    <th>সেরা টাইমফ্রেম</th>
+                </tr>
+                <tr><td>RSI (14)</td><td>Momentum</td><td>>70 / <30</td><td>H1-D1</td></tr>
+                <tr><td>MACD</td><td>Trend + Momentum</td><td>—</td><td>H4-D1</td></tr>
+                <tr><td>Bollinger Bands</td><td>Volatility</td><td>Band touch</td><td>H1-H4</td></tr>
+            </table>
+            <h3>RSI Divergence উদাহরণ</h3>
+            <div class="chart-gallery">
+                <img src="https://alchemymarkets.com/wp-content/uploads/2025/03/Divergence-cheat-sheet-1.jpg" alt="RSI Divergence চার্ট" class="img-example">
+            </div>
+            <div class="tip">RSI >70 = ওভারবট (বিক্রি), <30 = ওভারসোল্ড (কেনা)।</div>
+        </section>
+
+        <section>
+            <h2>৪. ফিবোনাচি রিট্রেসমেন্ট ও এক্সটেনশন</h2>
+            <p>প্রাইস টার্গেট ও পুলব্যাক লেভেল নির্ধারণে শক্তিশালী টুল।</p>
+            <div class="chart-gallery">
+                <img src="https://trendspider.com/learning-center/wp-content/uploads/2023/06/fibonacci-extension.jpg" alt="ফিবোনাচি এক্সটেনশন" class="img-example">
+                <img src="https://www.tradingview.com/x/4pV2pX2V/" alt="ফিবোনাচি রিট্রেসমেন্ট উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">
+                ০.৬১৮ ও ০.৭৮৬ লেভেল সবচেয়ে শক্তিশালী।
+            </div>
+        </section>
+
+        <section>
+            <h2>৫. মাল্টি-টাইমফ্রেম অ্যানালিসিস</h2>
+            <p>উচ্চ টাইমফ্রেমে ট্রেন্ড দেখে লো টাইমফ্রেমে এন্ট্রি নেয়া।</p>
+            <div class="chart-gallery">
+                <img src="https://tradeciety.com/hubfs/Imported_Blog_Media/Multi-timeframe.png" alt="মাল্টি-টাইমফ্রেম অ্যালাইনমেন্ট উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">
+                D1 ট্রেন্ড দেখে H1/H4 এ এন্ট্রি নিলে উইন রেট অনেক বাড়ে।
+            </div>
+        </section>
+
+        <section>
+            <h2>৬. কার্যকর স্ট্র্যাটেজি সারাংশ</h2>
+            <ul>
+                <li>200 EMA ট্রেন্ড ফলো</li>
+                <li>সাপোর্ট/রেজিস্ট্যান্স + ক্যান্ডেল কনফার্মেশন</li>
+                <li>ব্রেকআউট + রিটেস্ট</li>
+                <li>RSI + MACD কনফ্লুয়েন্স</li>
+            </ul>
+            <div class="tip">
+                একাধিক কনফার্মেশন ছাড়া ট্রেডে ঢুকবেন না। প্র্যাকটিস করে ব্যাকটেস্ট করুন।
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        © ২০২৫ ট্রেডিং স্কুল | শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে | রিয়েল ট্রেডিং নিজের দায়িত্বে করবেন
+    </footer>
+
+</body>
+</html>
