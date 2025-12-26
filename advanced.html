@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ট্রেডিং স্কুল - অ্যাডভান্স লেভেল</title>
+    <style>
+        :root {
+            --primary: #0f2027;
+            --secondary: #203a43;
+            --accent: #37b39a;
+            --light: #f0f4f8;
+            --dark: #1a1a2e;
+            --white: #ffffff;
+            --glow: 0 0 20px rgba(55,179,154,0.5);
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(to bottom, var(--light), #e0e8f0);
+            color: var(--dark);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+            padding: clamp(4rem, 12vw, 7rem) 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(55,179,154,0.12) 10%, transparent 60%);
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translate(0,0) rotate(0deg); }
+            100% { transform: translate(100%,100%) rotate(360deg); }
+        }
+        header h1 {
+            font-size: clamp(2.8rem, 10vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        header p {
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0.92;
+        }
+        nav {
+            background: rgba(15,32,39,0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.4rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0.8rem 1.5rem;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+        }
+        nav a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: var(--glow);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        section {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(55,179,154,0.2);
+        }
+        h2 {
+            color: var(--accent);
+            font-size: clamp(2.2rem, 7vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(55,179,154,0.4);
+        }
+        h3 {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+        ul, ol { padding-left: 2rem; margin: 1.2rem 0; font-size: 1.1rem; }
+        table { width:100%; border-collapse:collapse; margin:2rem 0; font-size:1rem; }
+        th, td { border:1px solid rgba(55,179,154,0.2); padding:1rem; text-align:left; }
+        th { background:rgba(55,179,154,0.1); color:var(--accent); }
+        .tip {
+            background: rgba(55,179,154,0.1);
+            border-left: 6px solid var(--accent);
+            padding: 1.6rem;
+            margin: 2rem 0;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .img-example { max-width:100%; height:auto; border-radius:12px; box-shadow:var(--shadow); margin:1.5rem auto; display:block; }
+        .chart-gallery { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin:2rem 0; }
+        .chart-gallery img { max-width:48%; flex:1 1 320px; border-radius:12px; box-shadow:var(--shadow); transition:transform 0.3s; }
+        .chart-gallery img:hover { transform:scale(1.05); }
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3.5rem 1rem;
+            margin-top: 6rem;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(55,179,154,0.2);
+        }
+        @media (min-width: 640px) { .chart-gallery img { max-width:32%; } }
+        @media (min-width: 992px) { .chart-gallery img { max-width:24%; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>অ্যাডভান্স লেভেল</h1>
+        <p>প্রো লেভেল: রিস্ক, সাইকোলজি, অপশন, ব্যাকটেস্টিং, পোর্টফোলিও — সম্পূর্ণ তথ্য সহ</p>
+    </header>
+
+    <nav>
+        <a href="index.html">হোম</a>
+        <a href="basic.html">বেসিক লেভেল</a>
+        <a href="intermediate.html">ইন্টারমিডিয়েট</a>
+        <a href="candlestick-patterns.html">ক্যান্ডেলস্টিক প্যাটার্ন</a>
+    </nav>
+
+    <div class="container">
+
+        <section>
+            <h2>১. অ্যাডভান্সড রিস্ক ম্যানেজমেন্ট</h2>
+            <p>Kelly Criterion, Correlation, Max Drawdown কন্ট্রোল — টিকে থাকার মূল চাবিকাঠি।</p>
+            <h3>রিস্ক পিরামিড</h3>
+            <div class="chart-gallery">
+                <img src="https://www.investopedia.com/thmb/E4LS0ODesel72bXkR-pWIWIsbk0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DeterminingRiskandtheRiskPyramid3-1cc4e411548c431aa97ac24bea046770.png" alt="Investment Risk Pyramid" class="img-example">
+            </div>
+            <div class="tip">
+                প্রতি ট্রেডে ০.৫-১% ঝুঁকি — দীর্ঘমেয়াদে বেঁচে থাকার একমাত্র উপায়।
+            </div>
+        </section>
+
+        <section>
+            <h2>২. ট্রেডিং সাইকোলজি</h2>
+            <p>Fear & Greed Cycle, Revenge Trading, Overconfidence — এগুলোই ৯০% লসের কারণ।</p>
+            <h3>ইমোশন সাইকেল</h3>
+            <div class="chart-gallery">
+                <img src="https://cdn.prod.website-files.com/5fba23eb8789c3c7fcfb5f31/602a0c2482a2e2e322cc467c_Investor-Cycle-600x317.png" alt="Investor Emotions Cycle" class="img-example">
+            </div>
+            <div class="tip">
+                প্রতিদিন জার্নাল লিখুন: কেন ঢুকলাম? কেন বের হলাম? কী অনুভব করলাম?
+            </div>
+        </section>
+
+        <section>
+            <h2>৩. ফিবোনাচি রিট্রেসমেন্ট ও এক্সটেনশন</h2>
+            <p>প্রাইস টার্গেট ও পুলব্যাক লেভেল নির্ধারণে সবচেয়ে শক্তিশালী টুল।</p>
+            <div class="chart-gallery">
+                <img src="https://trendspider.com/learning-center/wp-content/uploads/2023/06/fibonacci-extension.jpg" alt="ফিবোনাচি এক্সটেনশন উদাহরণ" class="img-example">
+                <img src="https://www.tradingview.com/x/4pV2pX2V/" alt="ফিবোনাচি রিট্রেসমেন্ট উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">
+                ০.৬১৮ ও ০.৭৮৬ লেভেল সবচেয়ে শক্তিশালী রিট্রেসমেন্ট।
+            </div>
+        </section>
+
+        <section>
+            <h2>৪. মাল্টি-টাইমফ্রেম অ্যানালিসিস</h2>
+            <p>উচ্চ টাইমফ্রেমে ট্রেন্ড নিয়ে লো টাইমফ্রেমে এন্ট্রি নেয়া।</p>
+            <div class="chart-gallery">
+                <img src="https://tradeciety.com/hubfs/Imported_Blog_Media/Multi-timeframe.png" alt="Multi-Timeframe Alignment" class="img-example">
+            </div>
+            <div class="tip">
+                D1 ট্রেন্ড দেখে H1/H4 এ এন্ট্রি নিলে উইন রেট অনেক বাড়ে।
+            </div>
+        </section>
+
+        <section>
+            <h2>৫. অপশন ট্রেডিং স্ট্র্যাটেজি</h2>
+            <p>Iron Condor, Straddle, Butterfly — লো রিস্ক ইনকাম জেনারেশন।</p>
+            <div class="chart-gallery">
+                <img src="https://www.truedata.in/content/uploads/blogimages/what-are-popular-options-trading-strategies1.webp" alt="Options Strategies Payoff Diagram" class="img-example">
+            </div>
+            <div class="tip">
+                অপশন বিক্রি করে থিটা ডেকে লাভ করা যায় — কিন্তু রিস্ক খুব সাবধানে নিয়ন্ত্রণ করতে হবে।
+            </div>
+        </section>
+
+        <section>
+            <h2>৬. ব্যাকটেস্টিং ও ইকুইটি কার্ভ</h2>
+            <p>পুরনো ডেটায় স্ট্র্যাটেজি টেস্ট না করলে রিয়েল মানি হারানো নিশ্চিত।</p>
+            <div class="chart-gallery">
+                <img src="https://www.quantifiedstrategies.com/wp-content/uploads/2024/03/what-is-an-equity-curve.png" alt="Equity Curve উদাহরণ" class="img-example">
+            </div>
+            <div class="tip">
+                ভালো ইকুইটি কার্ভ = স্টেডি উপরের দিকে যাওয়া + কম ড্রডাউন।
+            </div>
+        </section>
+
+        <section>
+            <h2>৭. পোর্টফোলিও ম্যানেজমেন্ট ও হেজিং</h2>
+            <ul>
+                <li>করিলেশন চেক করে ডাইভার্সিফাই করুন</li>
+                <li>হেজিং দিয়ে রিস্ক কমান (যেমন অপশন কিনে)</li>
+                <li>সাইজিং: ক্যাপিটালের ৫-১০% একটা অ্যাসেটে</li>
+            </ul>
+            <div class="tip">
+                একটা অ্যাসেটে সব টাকা না রাখুন — Black Swan এভেন্টে সব শেষ হয়ে যেতে পারে।
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        © ২০২৫ ট্রেডিং স্কুল | শুধুমাত্র শিক্ষামূলক উদ্দেশ্যে | রিয়েল ট্রেডিং নিজের দায়িত্বে করবেন
+    </footer>
+
+</body>
+</html>
